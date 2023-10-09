@@ -17,7 +17,6 @@ provider "corellium" {
 resource "corellium_v1project" "example" {
   name = "example"
   settings = {
-    version         = 1
     internet_access = false
     dhcp            = false
   }

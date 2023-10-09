@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -56,8 +56,6 @@ type V1ProjectTeamModel struct {
 }
 
 type V1ProjectSettingsModel struct {
-	// Version is the project version.
-	Version types.Number `tfsdk:"version"`
 	// InternetAccess is a boolean that defines if the project has Internet access.
 	InternetAccess types.Bool `tfsdk:"internet_access"`
 	// Dhcp is a boolean that defines if the project has DHCP enabled.
@@ -144,10 +142,6 @@ func (d *CorelliumV1ProjectResource) Schema(_ context.Context, _ resource.Schema
 				Description: "Project settings",
 				Required:    true,
 				Attributes: map[string]schema.Attribute{
-					"version": schema.NumberAttribute{
-						Description: "Project version",
-						Required:    true,
-					},
 					"internet_access": schema.BoolAttribute{
 						Description: "Project internet access",
 						Required:    true,
@@ -334,7 +328,6 @@ func (d *CorelliumV1ProjectResource) Create(ctx context.Context, req resource.Cr
 	p.SetName(plan.Name.ValueString())
 
 	s := corellium.NewProjectSettingsWithDefaults()
-	s.SetVersion(BigFloatToFloat32(plan.Settings.Version.ValueBigFloat()))
 	s.SetInternetAccess(plan.Settings.InternetAccess.ValueBool())
 	s.SetDhcp(plan.Settings.Dhcp.ValueBool())
 
@@ -576,7 +569,6 @@ func (d *CorelliumV1ProjectResource) Create(ctx context.Context, req resource.Cr
 	plan.Id = types.StringValue(project.GetId())
 	plan.Name = types.StringValue(project.GetName())
 
-	plan.Settings.Version = types.NumberValue(big.NewFloat(float64(project.Settings.GetVersion())))
 	plan.Settings.InternetAccess = types.BoolValue(project.Settings.GetInternetAccess())
 	plan.Settings.Dhcp = types.BoolValue(project.Settings.GetDhcp())
 
@@ -764,7 +756,6 @@ func (d *CorelliumV1ProjectResource) Read(ctx context.Context, req resource.Read
 	state.Id = types.StringValue(project.GetId())
 	state.Name = types.StringValue(project.GetName())
 
-	state.Settings.Version = types.NumberValue(big.NewFloat(float64(project.Settings.GetVersion())))
 	state.Settings.InternetAccess = types.BoolValue(project.Settings.GetInternetAccess())
 	state.Settings.Dhcp = types.BoolValue(project.Settings.GetDhcp())
 
@@ -808,7 +799,6 @@ func (d *CorelliumV1ProjectResource) Update(ctx context.Context, req resource.Up
 	p.SetName(plan.Name.ValueString())
 
 	s := corellium.NewProjectSettings()
-	s.SetVersion(BigFloatToFloat32(plan.Settings.Version.ValueBigFloat()))
 	s.SetInternetAccess(plan.Settings.InternetAccess.ValueBool())
 	s.SetDhcp(plan.Settings.Dhcp.ValueBool())
 
@@ -1169,7 +1159,6 @@ func (d *CorelliumV1ProjectResource) Update(ctx context.Context, req resource.Up
 	state.Id = types.StringValue(project.GetId())
 	state.Name = types.StringValue(project.GetName())
 
-	state.Settings.Version = types.NumberValue(big.NewFloat(float64(project.Settings.GetVersion())))
 	state.Settings.InternetAccess = types.BoolValue(project.Settings.GetInternetAccess())
 	state.Settings.Dhcp = types.BoolValue(project.Settings.GetDhcp())
 

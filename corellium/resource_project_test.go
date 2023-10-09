@@ -17,7 +17,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -31,7 +30,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -47,7 +45,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test_update"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -61,7 +58,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test_update"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -85,7 +81,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -104,7 +99,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -129,7 +123,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -143,7 +136,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -176,7 +168,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -195,7 +186,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -229,7 +219,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -243,7 +232,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -259,7 +247,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 2
                         internet_access = true
                         dhcp = true
                     }
@@ -279,7 +266,6 @@ func TestAccCorelliumV1ProjectResource_basic(t *testing.T) {
                 `,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "2"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "true"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "2"),
@@ -312,7 +298,6 @@ func TestAccCorelliumV1ProjectResource_users(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -331,7 +316,6 @@ func TestAccCorelliumV1ProjectResource_users(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -356,7 +340,6 @@ func TestAccCorelliumV1ProjectResource_users(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -370,7 +353,6 @@ func TestAccCorelliumV1ProjectResource_users(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -411,7 +393,6 @@ func TestAccCorelliumV1ProjectResource_teams(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -430,7 +411,6 @@ func TestAccCorelliumV1ProjectResource_teams(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -464,7 +444,6 @@ func TestAccCorelliumV1ProjectResource_teams(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -478,7 +457,6 @@ func TestAccCorelliumV1ProjectResource_teams(t *testing.T) {
                 `, generatePassword(32, 4, 4, 4)),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -502,7 +480,6 @@ func TestAccCorelliumV1ProjectResource_keys(t *testing.T) {
 				resource "corellium_v1project" "test" {
 					name = "test"
 					settings = {
-						version = 1
 						internet_access = false
 						dhcp = false
 					}
@@ -522,7 +499,6 @@ func TestAccCorelliumV1ProjectResource_keys(t *testing.T) {
 				`,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -540,7 +516,6 @@ func TestAccCorelliumV1ProjectResource_keys(t *testing.T) {
 				resource "corellium_v1project" "test" {
 					name = "test"
 					settings = {
-						version = 1
 						internet_access = false
 						dhcp = false
 					}
@@ -554,7 +529,6 @@ func TestAccCorelliumV1ProjectResource_keys(t *testing.T) {
 				`,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr("corellium_v1project.test", "name", "test"),
-					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.version", "1"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.internet_access", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "settings.dhcp", "false"),
 					resource.TestCheckResourceAttr("corellium_v1project.test", "quotas.cores", "1"),
@@ -578,7 +552,6 @@ func TestAccCorelliumV1ProjectResource_duplicated(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -593,7 +566,6 @@ func TestAccCorelliumV1ProjectResource_duplicated(t *testing.T) {
                 resource "corellium_v1project" "test_duplicated" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }
@@ -620,7 +592,6 @@ func TestAccCorelliumV1ProjectResource_non_enterprise(t *testing.T) {
                 resource "corellium_v1project" "test" {
                     name = "test"
                     settings = {
-                        version = 1
                         internet_access = false
                         dhcp = false
                     }

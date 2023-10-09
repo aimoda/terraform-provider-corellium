@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -657,9 +657,9 @@ func (d *CorelliumV1InstanceResource) Create(ctx context.Context, req resource.C
 		Info: types.StringValue(instance.Agent.Get().GetInfo()),
 	}
 	plan.Netmon = &V1InstanceNetmonModel{
-		Hash:    types.StringValue(instance.Netmon.Get().GetHash()),
-		Info:    types.StringValue(instance.Netmon.Get().GetInfo()),
-		Enabled: types.BoolValue(instance.Netmon.Get().GetEnabled()),
+		Hash:    types.StringValue(instance.Netmon.GetHash()),
+		Info:    types.StringValue(instance.Netmon.GetInfo()),
+		Enabled: types.BoolValue(instance.Netmon.GetEnabled()),
 	}
 	plan.ExposePort = types.StringValue(instance.GetExposePort())
 	plan.Fault = types.BoolValue(instance.GetFault())
@@ -778,9 +778,9 @@ func (d *CorelliumV1InstanceResource) Read(ctx context.Context, req resource.Rea
 		Info: types.StringValue(instance.Agent.Get().GetInfo()),
 	}
 	state.Netmon = &V1InstanceNetmonModel{
-		Hash:    types.StringValue(instance.Netmon.Get().GetHash()),
-		Info:    types.StringValue(instance.Netmon.Get().GetInfo()),
-		Enabled: types.BoolValue(instance.Netmon.Get().GetEnabled()),
+		Hash:    types.StringValue(instance.Netmon.GetHash()),
+		Info:    types.StringValue(instance.Netmon.GetInfo()),
+		Enabled: types.BoolValue(instance.Netmon.GetEnabled()),
 	}
 	state.ExposePort = types.StringValue(instance.GetExposePort())
 	state.Fault = types.BoolValue(instance.GetFault())
@@ -948,9 +948,9 @@ func (d *CorelliumV1InstanceResource) Update(ctx context.Context, req resource.U
 	state.Agent.Hash = types.StringValue(instance.Agent.Get().GetHash())
 	state.Agent.Info = types.StringValue(instance.Agent.Get().GetInfo())
 
-	state.Netmon.Hash = types.StringValue(instance.Netmon.Get().GetHash())
-	state.Netmon.Info = types.StringValue(instance.Netmon.Get().GetInfo())
-	state.Netmon.Enabled = types.BoolValue(instance.Netmon.Get().GetEnabled())
+	state.Netmon.Hash = types.StringValue(instance.Netmon.GetHash())
+	state.Netmon.Info = types.StringValue(instance.Netmon.GetInfo())
+	state.Netmon.Enabled = types.BoolValue(instance.Netmon.GetEnabled())
 
 	state.ExposePort = types.StringValue(instance.GetExposePort())
 	state.Fault = types.BoolValue(instance.GetFault())

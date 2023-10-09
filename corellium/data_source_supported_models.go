@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
@@ -44,11 +44,11 @@ type V1SupportModelsModel struct {
 	CpId        types.Int64  `tfsdk:"cp_id"`
 	BdId        types.Int64  `tfsdk:"bd_id"`
 	Peripherals types.Bool   `tfsdk:"peripherals"`
-	//TODO: Waiting for updated bindings from David
+	// TODO: Waiting for updated bindings from David
 	// Quotas      Quotas       `tfsdk:"quotas"`
 }
 
-//TODO: Waiting for updated bindings from David
+// TODO: Waiting for updated bindings from David
 // type Quotas struct {
 // 	Cpus  types.Number `tfsdk:"cpus"`
 // 	Cores types.Number `tfsdk:"cores"`
@@ -100,7 +100,7 @@ func (d *V1SupportedModelsDataSource) Schema(_ context.Context, _ datasource.Sch
 						"peripherals": schema.BoolAttribute{
 							Optional: true,
 						},
-						//TODO: Waiting for updated bindings from David
+						// TODO: Waiting for updated bindings from David
 						// "quotas": schema.SingleNestedAttribute{
 						// 	Required: true,
 						// 	Attributes: map[string]schema.Attribute{

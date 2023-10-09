@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"

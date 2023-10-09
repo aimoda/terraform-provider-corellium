@@ -3,7 +3,7 @@ package corellium
 import (
 	"context"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"

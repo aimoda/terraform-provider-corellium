@@ -55,10 +55,6 @@ func TestExamples_resources(t *testing.T) {
 			name: "testing resource user",
 			dir:  "./examples/resources/corellium_user",
 		},
-		/*{
-			name: "testing resource webplayer",
-			dir:  "./examples/resources/corellium_webplayer",
-		},*/
 	}
 
 	for _, tt := range tests {
@@ -82,6 +78,7 @@ func TestExamples_resources(t *testing.T) {
 					"key":                         fmt.Sprintf("%s/terraform.tfstate", tt.dir),
 					"skip_credentials_validation": true,
 					"skip_region_validation":      true,
+					"skip_requesting_account_id":  true,
 					"encrypt":                     true,
 				},
 				TerraformDir: tt.dir,
