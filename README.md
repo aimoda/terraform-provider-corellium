@@ -46,7 +46,6 @@ provider "corellium" {
 resource "corellium_v1project" "backtesting" {
   name = "ios_backtesting"
   settings = {
-    version         = 1
     internet_access = false
     dhcp            = false
   }
@@ -79,6 +78,7 @@ CORELLIUM_API_TOKEN="YOUR.API_KEY_HERE" CORELLIUM_API_HOST="YOURDOMAIN.enterpris
 ```
 
 To tear down everything that was created, run:
+
 ```sh
 CORELLIUM_API_TOKEN="YOUR.API_KEY_HERE" CORELLIUM_API_HOST="YOURDOMAIN.enterprise.corellium.com" terraform destroy
 ```
@@ -90,4 +90,3 @@ CORELLIUM_API_TOKEN="YOUR.API_KEY_HERE" CORELLIUM_API_HOST="YOURDOMAIN.enterpris
     <img src="https://terraform-provider-corellium.email.ai.moda/bimi/logo.svg?mode=default" alt="ai.moda logo" title="ai.moda" align="right" height="50">
   </picture>
 </a>
-

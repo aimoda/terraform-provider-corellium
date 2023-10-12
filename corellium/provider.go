@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
@@ -174,6 +174,5 @@ func (p *corelliumProvider) Resources(_ context.Context) []func() resource.Resou
 		NewCorelliumV1UserResource,
 		NewCorelliumV1SnapshotResource,
 		NewCorelliumV1InstanceResource,
-		NewCorelliumV1WebPlayerResource,
 	}
 }

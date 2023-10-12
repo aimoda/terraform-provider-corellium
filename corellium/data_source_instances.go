@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
@@ -373,9 +373,9 @@ func (d *V1InstancesDataSource) Read(ctx context.Context, req datasource.ReadReq
 			Info: types.StringValue(instance.Agent.Get().GetInfo()),
 		}
 		state.Instances[i].Netmon = &V1InstanceNetmonModel{
-			Hash:    types.StringValue(instance.Netmon.Get().GetHash()),
-			Info:    types.StringValue(instance.Netmon.Get().GetInfo()),
-			Enabled: types.BoolValue(instance.Netmon.Get().GetEnabled()),
+			Hash:    types.StringValue(instance.Netmon.GetHash()),
+			Info:    types.StringValue(instance.Netmon.GetInfo()),
+			Enabled: types.BoolValue(instance.Netmon.GetEnabled()),
 		}
 		state.Instances[i].ExposePort = types.StringValue(instance.GetExposePort())
 		state.Instances[i].Fault = types.BoolValue(instance.GetFault())

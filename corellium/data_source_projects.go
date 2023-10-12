@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"net/http"
 
-	"github.com/aimoda/go-corellium-api-client"
+	"github.com/corellium/go-corellium-api-client"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
@@ -68,10 +68,6 @@ func (d *V1ProjectsDataSource) Schema(_ context.Context, _ datasource.SchemaRequ
 							Description: "Project settings",
 							Computed:    true,
 							Attributes: map[string]schema.Attribute{
-								"version": schema.NumberAttribute{
-									Description: "Project version",
-									Computed:    true,
-								},
 								"internet_access": schema.BoolAttribute{
 									Description: "Project internet access",
 									Computed:    true,
@@ -259,7 +255,6 @@ func (d *V1ProjectsDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		state.Projects[i].Name = types.StringValue(project.GetName())
 
 		state.Projects[i].Settings = &V1ProjectSettingsModel{
-			Version:        types.NumberValue(big.NewFloat(float64(project.Settings.GetVersion()))),
 			InternetAccess: types.BoolValue(project.Settings.GetInternetAccess()),
 			Dhcp:           types.BoolValue(project.Settings.GetDhcp()),
 		}

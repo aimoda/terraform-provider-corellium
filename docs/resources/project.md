@@ -6,8 +6,7 @@
 resource "corellium_v1project" "example" {
   name = "example"
   settings = {
-    version = 1
-    internet_access = false 
+    internet_access = false
     dhcp = false
   }
   quotas = {
@@ -47,6 +46,7 @@ resource "corellium_v1project" "example" {
 - `teams` (list of `team`) - The teams associated to this project.
 
 - `keys` (list of `key`) - The authorized keys associated to this project.
+
 ### Optional
 
 ### Read-only
@@ -60,8 +60,6 @@ resource "corellium_v1project" "example" {
 ### Nested schema for `settings`
 
 #### Required
-
-- `version` (number) - The version of the project.
 
 - `internet_access` (bool) - Whether the project has internet access.
 
